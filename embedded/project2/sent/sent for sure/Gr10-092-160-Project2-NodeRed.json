@@ -1,0 +1,325 @@
+[
+    {
+        "id": "44189545fd4b2b31",
+        "type": "tab",
+        "label": "Gr10-092-160-Project2-NodeRed",
+        "disabled": false,
+        "info": "",
+        "env": []
+    },
+    {
+        "id": "84fe8e75be2027b0",
+        "type": "mqtt out",
+        "z": "44189545fd4b2b31",
+        "name": "",
+        "topic": "esp32/output",
+        "qos": "",
+        "retain": "",
+        "respTopic": "",
+        "contentType": "",
+        "userProps": "",
+        "correl": "",
+        "expiry": "",
+        "broker": "10e78a89.5b4fd5",
+        "x": 310,
+        "y": 340,
+        "wires": []
+    },
+    {
+        "id": "4351065f09e33993",
+        "type": "mqtt in",
+        "z": "44189545fd4b2b31",
+        "name": "",
+        "topic": "esp32/distance",
+        "qos": "2",
+        "datatype": "auto-detect",
+        "broker": "10e78a89.5b4fd5",
+        "nl": false,
+        "rap": false,
+        "inputs": 0,
+        "x": 160,
+        "y": 260,
+        "wires": [
+            [
+                "fd93b65b3c55df24",
+                "586b9b51785aea83"
+            ]
+        ]
+    },
+    {
+        "id": "586b9b51785aea83",
+        "type": "debug",
+        "z": "44189545fd4b2b31",
+        "name": "",
+        "active": true,
+        "tosidebar": true,
+        "console": false,
+        "tostatus": false,
+        "complete": "payload",
+        "targetType": "msg",
+        "statusVal": "",
+        "statusType": "auto",
+        "x": 381,
+        "y": 234,
+        "wires": []
+    },
+    {
+        "id": "4edef7a2cc39a149",
+        "type": "ui_switch",
+        "z": "44189545fd4b2b31",
+        "name": "",
+        "label": "Output",
+        "tooltip": "",
+        "group": "61285987.c20328",
+        "order": 0,
+        "width": 0,
+        "height": 0,
+        "passthru": true,
+        "decouple": "false",
+        "topic": "",
+        "topicType": "str",
+        "style": "",
+        "onvalue": "on",
+        "onvalueType": "str",
+        "onicon": "",
+        "oncolor": "",
+        "offvalue": "off",
+        "offvalueType": "str",
+        "officon": "",
+        "offcolor": "",
+        "animate": true,
+        "className": "",
+        "x": 169,
+        "y": 340,
+        "wires": [
+            [
+                "84fe8e75be2027b0"
+            ]
+        ]
+    },
+    {
+        "id": "fd93b65b3c55df24",
+        "type": "ui_chart",
+        "z": "44189545fd4b2b31",
+        "name": "",
+        "group": "61285987.c20328",
+        "order": 0,
+        "width": 0,
+        "height": 0,
+        "label": "Distance (cm)",
+        "chartType": "line",
+        "legend": "false",
+        "xformat": "HH:mm:ss",
+        "interpolate": "linear",
+        "nodata": "",
+        "dot": false,
+        "ymin": "",
+        "ymax": "",
+        "removeOlder": 1,
+        "removeOlderPoints": "",
+        "removeOlderUnit": "3600",
+        "cutout": 0,
+        "useOneColor": false,
+        "useUTC": false,
+        "colors": [
+            "#1f77b4",
+            "#aec7e8",
+            "#ff7f0e",
+            "#2ca02c",
+            "#98df8a",
+            "#d62728",
+            "#ff9896",
+            "#9467bd",
+            "#c5b0d5"
+        ],
+        "outputs": 1,
+        "useDifferentColor": false,
+        "className": "",
+        "x": 380,
+        "y": 280,
+        "wires": [
+            []
+        ]
+    },
+    {
+        "id": "4872e3348fc6aef5",
+        "type": "mqtt in",
+        "z": "44189545fd4b2b31",
+        "name": "",
+        "topic": "esp32/closeDistance",
+        "qos": "2",
+        "datatype": "auto-detect",
+        "broker": "10e78a89.5b4fd5",
+        "nl": false,
+        "rap": false,
+        "inputs": 0,
+        "x": 170,
+        "y": 480,
+        "wires": [
+            [
+                "37852cf0c7cbf053",
+                "8e8694bc73d34f51"
+            ]
+        ]
+    },
+    {
+        "id": "cedbdf10840681e3",
+        "type": "mqtt in",
+        "z": "44189545fd4b2b31",
+        "name": "",
+        "topic": "esp32/timeTrigger",
+        "qos": "2",
+        "datatype": "auto-detect",
+        "broker": "10e78a89.5b4fd5",
+        "nl": false,
+        "rap": false,
+        "inputs": 0,
+        "x": 170,
+        "y": 720,
+        "wires": [
+            [
+                "2ecdd5bc06573f21"
+            ]
+        ]
+    },
+    {
+        "id": "2ecdd5bc06573f21",
+        "type": "change",
+        "z": "44189545fd4b2b31",
+        "name": "check",
+        "rules": [
+            {
+                "t": "set",
+                "p": "payload",
+                "pt": "msg",
+                "to": "$now()",
+                "tot": "jsonata"
+            }
+        ],
+        "action": "",
+        "property": "",
+        "from": "",
+        "to": "",
+        "reg": false,
+        "x": 350,
+        "y": 720,
+        "wires": [
+            [
+                "9f59bfc1ea2387d7",
+                "039a8ff4f4b0c863"
+            ]
+        ]
+    },
+    {
+        "id": "9f59bfc1ea2387d7",
+        "type": "debug",
+        "z": "44189545fd4b2b31",
+        "name": "",
+        "active": true,
+        "tosidebar": true,
+        "console": true,
+        "tostatus": false,
+        "complete": "payload",
+        "targetType": "msg",
+        "statusVal": "",
+        "statusType": "auto",
+        "x": 560,
+        "y": 720,
+        "wires": []
+    },
+    {
+        "id": "039a8ff4f4b0c863",
+        "type": "mongodb out",
+        "z": "44189545fd4b2b31",
+        "mongodb": "04a279c92ab49089",
+        "name": "",
+        "collection": "TimeTrigger",
+        "payonly": false,
+        "upsert": false,
+        "multi": false,
+        "operation": "insert",
+        "x": 590,
+        "y": 800,
+        "wires": []
+    },
+    {
+        "id": "37852cf0c7cbf053",
+        "type": "debug",
+        "z": "44189545fd4b2b31",
+        "name": "",
+        "active": true,
+        "tosidebar": true,
+        "console": true,
+        "tostatus": false,
+        "complete": "payload",
+        "targetType": "msg",
+        "statusVal": "",
+        "statusType": "auto",
+        "x": 400,
+        "y": 480,
+        "wires": []
+    },
+    {
+        "id": "8e8694bc73d34f51",
+        "type": "mongodb out",
+        "z": "44189545fd4b2b31",
+        "mongodb": "04a279c92ab49089",
+        "name": "",
+        "collection": "Distance",
+        "payonly": false,
+        "upsert": false,
+        "multi": false,
+        "operation": "insert",
+        "x": 460,
+        "y": 580,
+        "wires": []
+    },
+    {
+        "id": "10e78a89.5b4fd5",
+        "type": "mqtt-broker",
+        "name": "",
+        "broker": "localhost",
+        "port": "1883",
+        "clientid": "",
+        "usetls": false,
+        "compatmode": true,
+        "keepalive": "60",
+        "cleansession": true,
+        "birthTopic": "",
+        "birthQos": "0",
+        "birthPayload": "",
+        "closeTopic": "",
+        "closeQos": "0",
+        "closePayload": "",
+        "willTopic": "",
+        "willQos": "0",
+        "willPayload": ""
+    },
+    {
+        "id": "61285987.c20328",
+        "type": "ui_group",
+        "name": "Main",
+        "tab": "e7c46d5e.a1283",
+        "order": 1,
+        "disp": true,
+        "width": "6",
+        "collapse": false,
+        "className": ""
+    },
+    {
+        "id": "04a279c92ab49089",
+        "type": "mongodb",
+        "hostname": "127.0.0.1",
+        "topology": "direct",
+        "connectOptions": "",
+        "port": "27017",
+        "db": "RailwayGuard",
+        "name": ""
+    },
+    {
+        "id": "e7c46d5e.a1283",
+        "type": "ui_tab",
+        "name": "Dashboard",
+        "icon": "dashboard"
+    }
+]

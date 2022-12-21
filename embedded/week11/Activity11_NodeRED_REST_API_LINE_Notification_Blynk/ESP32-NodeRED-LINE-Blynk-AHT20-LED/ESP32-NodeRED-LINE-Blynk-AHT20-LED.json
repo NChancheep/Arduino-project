@@ -1,0 +1,49 @@
+[
+    {
+        "id": "ea84d9a87fe7b4a0",
+        "type": "ui_slider",
+        "z": "2c8b58fd0af6517a",
+        "name": "",
+        "label": "slider",
+        "tooltip": "",
+        "group": "61285987.c20328",
+        "order": 6,
+        "width": 0,
+        "height": 0,
+        "passthru": true,
+        "outs": "all",
+        "topic": "payload",
+        "topicType": "msg",
+        "min": 0,
+        "max": "1023",
+        "step": 1,
+        "className": "",
+        "x": 190,
+        "y": 440,
+        "wires": [
+            [
+                "7165d601364c497d"
+            ]
+        ]
+    },
+    {
+        "id": "61285987.c20328",
+        "type": "ui_group",
+        "name": "Lab11-Temp-Humid",
+        "tab": "d1858d0e84177c20",
+        "order": 1,
+        "disp": true,
+        "width": "6",
+        "collapse": false,
+        "className": ""
+    },
+    {
+        "id": "d1858d0e84177c20",
+        "type": "ui_tab",
+        "name": "Lab11",
+        "icon": "dashboard",
+        "order": 4,
+        "disabled": false,
+        "hidden": false
+    }
+]
